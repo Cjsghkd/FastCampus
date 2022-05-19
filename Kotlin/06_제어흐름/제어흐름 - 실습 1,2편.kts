@@ -33,3 +33,35 @@ println(number3)
 // 식
 // - 값을 만들어 낸다
 // - (10+20), (10*20)
+
+// when
+val number4 : Int = 5
+when (number4) {
+    5 -> {
+        println("5 입니다")
+    }
+    6 -> {
+        println("6 입니다")
+    }
+    else -> {
+        println("모르겠습니다")
+    }
+}
+
+when (number4) {
+    5 -> println("5입니다")
+    6 -> println("6입니다")
+    else -> println("모르겠습니다")
+}
+
+when (number4) {
+    4 -> println("number is 4")
+    "안녕하세요" -> println("Hello")
+    is Boolean -> println("boolean")
+}
+
+when (number4) {
+    in 1..10 -> println("number is in 1..10") // number4 in 1.. 10 -> 결과(Boolean)
+    in 20..30 -> println("number is in 20..30")
+    in 40..60 -> println("number is in 40..60")
+}
