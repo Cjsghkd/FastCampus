@@ -1,6 +1,4 @@
 fun plus (A : Int?, B : Int?) : Int {
-    println(A)
-    println(B)
     var tempA: Int
     var tempB: Int
     if (A == null) {
@@ -13,7 +11,6 @@ fun plus (A : Int?, B : Int?) : Int {
     } else {
         tempB = B
     }
-
     return tempA + tempB
 }
 
