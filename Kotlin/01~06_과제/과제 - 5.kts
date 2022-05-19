@@ -1,11 +1,23 @@
-fun plus (var A : Int?, var B : Int?) : Int? {
-    if (A == null)
-        A = 0
-    else if (B == null)
-        B = 0
+fun plus (A : Int?, B : Int?) : Int {
+    println(A)
+    println(B)
+    var tempA: Int
+    var tempB: Int
+    if (A == null) {
+        tempA = 0
+    } else {
+        tempA = A
+    }
+    if (B == null) {
+        tempB = 0
+    } else {
+        tempB = B
+    }
 
-    return A + B
+    return tempA + tempB
 }
+
 var X : Int? = 10
 var Y : Int? = null
-var score : Int? = plus(X, Y)
+val score = plus(X, Y)
+println(score)
