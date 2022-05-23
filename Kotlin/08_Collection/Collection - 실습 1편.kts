@@ -2,7 +2,7 @@
 val numbers = listOf<Int>(1, 2, 3)
 println(numbers[0])
 println(numbers.get(1))
-println(numbers.indexOf(2))
+println(numbers.indexOf(2)) // 해당하는 값의 인덱스 출력 [ex) 2 -> numbers의 인덱스 1이므로 1출력]
 println(numbers.last())
 
 val numbers2 = mutableListOf<Int>(1, 1, 1, 2, 3)
