@@ -14,6 +14,7 @@ fun function1 (number1 : Int, number2 : Int) -> Int = {}
 
 람다(Lamda)
 - 람다함수는 그 자체로 고차함수 이기 때문에 별도의 연산자 없이 변수에 담을수 있다
+- 람다함수에서는 return을 사용할수 없고 마지막라인이 리턴된다
 1. 풀 버젼
 - val function3 : (String) -> Unit = { str : String -> 함수내용 } // String변수를 파라미터로 받아와 Unit형태로 반환하는 함수를 타입으로 가져옴
 2. 축약 버젼
