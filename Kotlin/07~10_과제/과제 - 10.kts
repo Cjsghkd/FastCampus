@@ -16,7 +16,7 @@ fun abc(oneList : List<Int>, twoList : List<Int>) {
         }
     }
     println(totalList)
-
+    
 }
 
 val oneList = listOf<Int>(1, 2, 3)
