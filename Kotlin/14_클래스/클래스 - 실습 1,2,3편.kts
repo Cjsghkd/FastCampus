@@ -69,3 +69,26 @@ println(user6.age)
 //  - user5.name -> user5의 name
 //  - user5.기능 -> user5의 기능
 // -> .은 객체의 속성이나 기능을 사용할때 사용한다
+
+// 부 생성자(Secondary Constructor)
+// - constructor 키워드를 생략할 수 없다
+// - 주 생성자에는 객체를 만들기 위한 필수 조건이 있다면, 부 생성자에는 객체를 만들기 위한 옵션 조건이 있다
+// - 부 생성자에는 주 생성자에서 필요한 조건을 포함하고 있어야 한다 (파라미터를 포함하고 있어야한다)
+// - 부 생성자는 주 생성자에게 생성을 위임해야한다
+class User7 constructor (name : String) {
+    var age : Int = 0
+    val name : String
+
+    init {
+        this.name = name
+    }
+
+    // 부 생성자는 클래스명 우측에 올수 없다 -> 클래스의 본문에 있어야한다
+    constructor(name : String, age : Int) : this(name) { // this = User6
+        this.age = age
+    }
+}
+val user7 = User7(name = "가나다") // 주 생성자에서 실행하여 생성한다
+println(user7.name)
+val user7_2 = User7("가나다다", 20) // 부 생성자에서 실행하며 주 생성자에서 없는 인자(파라미터)만 생성한다. (주 생성자에서 생성한다)
+println(user7_2.age)
