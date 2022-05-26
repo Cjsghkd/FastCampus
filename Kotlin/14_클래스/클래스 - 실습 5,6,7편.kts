@@ -70,3 +70,5 @@ val book3 = Book3()
 //val book7 = Book4()       lazy를 써서 필요할 때(사용할 때)만 초기화 시킬 수 있다
 //val book8 = Book4()
 println(book3.title)
+
+
