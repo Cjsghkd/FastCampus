@@ -112,9 +112,26 @@ class Monster constructor (hp : Int, var power : Int, var armor : Int) {
     }
 }
 
-val warrior = Warrior(100, 10, 10)
-val monster = Monster(20, 5, 1)
+val warrior = Warrior(20, 10, 5)
+loop@ while (warrior.killCount < 10) {
+    val monster = Monster(15, 8, 1)
+    while (monster.isAlive) {
+        warrior.attack(monster)
+        monster.bite(warrior)
+        if (!warrior.isAlive) {
+            break@loop
+        }
+    }
+}
+val knight : Knight? = warrior.levelUp()
 
-warrior.attack(monster)
-warrior.attack(monster)
-warrior.attack(monster)
+//val monster = Monster(20, 5, 1)
+//
+//warrior.attack(monster)
+//warrior.attack(monster)
+//warrior.attack(monster)
+
+
+// 추가로 해볼만한 것들
+// 1. Knight 클래스 활용
+// 2. Healer 클래스를 만들어서 Warrior를 회복 또는 부활 시키는 기능 추가
