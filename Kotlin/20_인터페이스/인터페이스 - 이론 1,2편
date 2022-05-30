@@ -30,3 +30,9 @@ class BackDoSanTiger : Tiger {
     - val backDoSanTiger = BackDoSanTiger()
     - backDoSanTiger.bite()
     - backDoSanTiger.goToBox()
+
+- 부가적인 장점
+    - 협업
+    - 확장
+        - 다중 구현이 가능하다
+        - 비추천
