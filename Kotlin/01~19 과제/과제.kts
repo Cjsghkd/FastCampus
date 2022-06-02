@@ -15,8 +15,13 @@ open class Warrior(var hp : Int, var power : Int, var armor : Int) {
     }
 
     fun levelUp() : Boolean{
-        if (this.killMonster > 5) return false
-        else return true
+        if (this.killMonster >= 5) return false
+
+        else {
+            println("Knight로 레벨업!!")
+            Knight(this)
+            return true
+        }
     }
 }
 
@@ -49,7 +54,7 @@ class Monster(var hp : Int, var power : Int, var armor : Int) {
 
     fun defense(warrior : Warrior) {
         val damege : Int = this.armor - warrior.power
-        this.hp += if (damge < 0) (damege = -damege)
+        this.hp += damege
         if (this.hp > 0) println("Monster가 아직 살아있다. 체력 : ${this.hp}")
         else {
             println("Monster가 죽었습니다.")
@@ -61,12 +66,15 @@ class Monster(var hp : Int, var power : Int, var armor : Int) {
 val warrior = Warrior(100, 20, 10)
 loop@ while (warrior.levelUp()) {
     val monster = Monster(20, 5, 1)
-    while (monster.hp <= 0) {
+    while (monster.hp > 0) {
         warrior.attack(monster)
         monster.bite(warrior)
-        println("kill count : ${warrior.killMonster}")
         if (warrior.hp <= 0) break@loop
     }
+    println("kill count : ${warrior.killMonster}")
 }
 
-//val knight : Knight = warrior.levelUp()
+//if (warrior is Knight) {
+//    println("Kngiht로 레벨업!!")
+//}
+
