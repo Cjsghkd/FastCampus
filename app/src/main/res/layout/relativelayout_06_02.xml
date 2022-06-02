@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/name2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_above="@+id/name"
@@ -23,6 +24,14 @@
         android:layout_height="100dp"
         android:layout_toRightOf="@+id/name"
         android:background="@color/purple_700"
+        />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/purple_700"
+        android:layout_toLeftOf="@+id/name"
+        android:layout_toRightOf="@id/name2"
         />
 
 </RelativeLayout>
