@@ -15,6 +15,15 @@ ConstraintLayout
             - parent
                 - B Left_toLeftOf parent
 
-2>
+2> 여백
+- 해당 방향으로 여백을 두기 위해서는 반드시 그쪽 방향에 제약이 있어야 한다
+- layout_marginLeft = 100dp
+- layout_constraintLeft_toLeftOf = parent
 
-3>
+3> Bias (치우침)
+- layout_constraintHorizontal_bias = 값
+- layout_constraintVertical_bias = 값
+- 값
+    - 비율로 설정을 해준다
+    - 1인 경우 100% 치우친다
+    - 0.5인 경우 50% 치우친다 -> 변화가 없다
