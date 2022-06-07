@@ -6,6 +6,6 @@ import android.os.Bundle
 class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.linear_layout_05)
+        setContentView(R.layout.drawable_13)
     }
 }
