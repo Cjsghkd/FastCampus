@@ -1,0 +1,17 @@
+리소스(Resource)
+- drawable
+    - 이미지
+        - 실제 이미지 파일, xml
+- layout
+    - 화면을 구성하는 xml
+- mipmap (4가지중 제일 사용 X)
+    - 앱 아이콘
+- values
+    - colors
+        - 색
+            - RGB (Red, Green, Blue)
+        - 16진수 (굳이 이해 X)
+            - 10A 11B 12C 13D 14E 15F
+        - ##ff(투명도) 00(Red) 00(Green) 00(Blue)
+    - string
+        - 문자열 (문구)
