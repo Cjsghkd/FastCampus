@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online">
         <activity
+            android:name=".ViewControl_02"
+            android:exported="false" />
+        <activity
             android:name=".TestActivity"
             android:exported="false" />
         <activity
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".ViewControl_02"
+            android:name=".Test_01"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
