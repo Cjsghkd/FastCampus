@@ -3,7 +3,7 @@ package com.example.androidwithkotlinonline
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity2 : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.drawable_13)
