@@ -17,7 +17,7 @@
             android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="0"
             android:textSize="50sp"
             android:textColor="@color/white" />
     </LinearLayout>
@@ -33,44 +33,48 @@
             android:layout_weight="1"
             android:weightSum="4">
 
-            <ImageView
+            <TextView
                 android:id="@+id/One"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/android_test_01"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="1"/>
 
-            <Button
+            <TextView
                 android:id="@+id/Two"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="2"/>
 
-            <Button
+            <TextView
                 android:id="@+id/Three"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="3"/>
 
-            <Button
+            <TextView
                 android:id="@+id/CA"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -87,44 +91,48 @@
             android:layout_weight="1"
             android:weightSum="4">
 
-            <Button
+            <TextView
                 android:id="@+id/Four"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="4"/>
 
-            <Button
+            <TextView
                 android:id="@+id/Five"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="5"/>
 
-            <Button
+            <TextView
                 android:id="@+id/Six"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="6"/>
 
-            <Button
+            <TextView
                 android:id="@+id/Plus"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -140,44 +148,48 @@
             android:layout_weight="1"
             android:weightSum="4">
 
-            <Button
+            <TextView
                 android:id="@+id/Seven"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="7"/>
 
-            <Button
+            <TextView
                 android:id="@+id/Eight"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="8"/>
 
-            <Button
+            <TextView
                 android:id="@+id/Nine"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
                 android:textStyle="bold"
                 android:text="9"/>
 
-            <Button
+            <TextView
                 android:id="@+id/Zero"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"
@@ -193,11 +205,12 @@
             android:layout_weight="1"
             android:weightSum="1">
 
-            <Button
-                android:id="@+id/Vaules"
+            <TextView
+                android:id="@+id/Values"
+                android:gravity="center"
+                android:background="@drawable/android_test_01"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
                 android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="40sp"

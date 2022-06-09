@@ -2,6 +2,7 @@ package com.example.androidwithkotlinonline
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 
@@ -10,50 +11,78 @@ class Test_01 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test01)
 
-
-
+        var prev : String = ""
         var totalNumber : Int = 0
         var number : TextView = findViewById(R.id.number)
-        val One : Button = findViewById(R.id.One)
-        val Two : Button = findViewById(R.id.Two)
-        val Three : Button = findViewById(R.id.Three)
-        val Four : Button = findViewById(R.id.Four)
-        val Five : Button = findViewById(R.id.Five)
-        val Six : Button = findViewById(R.id.Six)
-        val Seven : Button = findViewById(R.id.Seven)
-        val Eight : Button = findViewById(R.id.Eight)
-        val Nine : Button = findViewById(R.id.Nine)
-        val Zero : Button = findViewById(R.id.Zero)
+        val One : TextView = findViewById(R.id.One)
+        val Two : TextView = findViewById(R.id.Two)
+        val Three : TextView = findViewById(R.id.Three)
+        val Four : TextView = findViewById(R.id.Four)
+        val Five : TextView = findViewById(R.id.Five)
+        val Six : TextView = findViewById(R.id.Six)
+        val Seven : TextView = findViewById(R.id.Seven)
+        val Eight : TextView = findViewById(R.id.Eight)
+        val Nine : TextView = findViewById(R.id.Nine)
+        val Zero : TextView = findViewById(R.id.Zero)
+        val Plus : TextView = findViewById(R.id.Plus)
+        val Values : TextView = findViewById(R.id.Values)
+        val CA : TextView = findViewById(R.id.CA)
 
         One.setOnClickListener {
-            number.text = "1"
+            prev = prev.plus("1")
+            number.text = prev
         }
         Two.setOnClickListener {
-            number.text = "2"
+            prev = prev.plus("2")
+            number.text = prev
         }
         Three.setOnClickListener {
-            number.text = "3"
+            prev = prev.plus("3")
+            number.text = prev
         }
         Four.setOnClickListener {
-            number.text = "4"
+            prev = prev.plus("4")
+            number.text = prev
         }
         Five.setOnClickListener {
-            number.text = "5"
+            prev = prev.plus("5")
+            number.text = prev
         }
         Six.setOnClickListener {
-            number.text = "6"
+            prev = prev.plus("6")
+            number.text = prev
         }
         Seven.setOnClickListener {
-            number.text = "7"
+            prev = prev.plus("7")
+            number.text = prev
         }
         Eight.setOnClickListener {
-            number.text = "8"
+            prev = prev.plus("8")
+            number.text = prev
         }
         Nine.setOnClickListener {
-            number.text = "9"
+            prev = prev.plus("9")
+            number.text = prev
         }
         Zero.setOnClickListener {
-            number.text = "0"
+            prev = prev.plus("0")
+            number.text = prev
+        }
+        Plus.setOnClickListener {
+            number.text = ""
+            if (prev.isNotEmpty())
+                totalNumber += prev.toInt()
+            prev = ""
+        }
+        Values.setOnClickListener {
+            totalNumber += prev.toInt()
+            number.text = totalNumber.toString()
+            prev = ""
+        }
+        CA.setOnClickListener {
+            number.text = ""
+            prev = ""
+            totalNumber = 0
         }
 
     }
