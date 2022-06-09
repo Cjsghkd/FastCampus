@@ -1,10 +1,12 @@
 package com.example.androidwithkotlinonline
 
+import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.core.view.KeyEventDispatcher
 
 class Intent_03_01 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,5 +32,39 @@ class Intent_03_01 : AppCompatActivity() {
             )
             startActivity(intent)
         }
+
+        // 명시적 인텐트 + ComponentName -> 액티비티 전환
+        val intent_one : TextView = findViewById(R.id.intent_one)
+        intent_one.setOnClickListener {
+            val intent : Intent = Intent()
+            val componentName : ComponentName = ComponentName(
+                "com.example.androidwithkotlinonline",
+                "com.example.androidwithkotlinonline.Intent_03_02"
+            )
+            intent.component = componentName
+            startActivity(intent)
+        }
+
+        // 명시적 인텐트 -> 액티비티 전환
+        // Context
+        // - 문맥
+        // A액티비티 -> B액티비티
+        (findViewById<TextView>(R.id.intent_two)).apply {
+            this.setOnClickListener {
+                startActivity(
+                    Intent(this@Intent_03_01, Intent_03_02::class.java)
+                )
+            }
+        }
+
+        // 명시적 인텐트 + data 전달
+        (findViewById<TextView>(R.id.intent_three)).apply {
+            this.setOnClickListener {
+                val intent = Intent(this@Intent_03_01, Intent_03_02::class.java)
+                intent.putExtra("extra-data", "data-one")
+                startActivity(intent)
+            }
+        }
+
     }
 }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Intent_03_01">
+    tools:context=".Intent_03_01"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/implicit_intent"
@@ -13,5 +14,29 @@
         android:background="@color/purple_200"
         android:gravity="center"
         android:text="암시적 인텐트" />
+
+    <TextView
+        android:id="@+id/intent_one"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_200"
+        android:gravity="center"
+        android:text="명시적 인텐트1" />
+
+    <TextView
+        android:id="@+id/intent_two"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_200"
+        android:gravity="center"
+        android:text="명시적 인텐트2" />
+
+    <TextView
+        android:id="@+id/intent_three"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/purple_200"
+        android:gravity="center"
+        android:text="명시적 인텐트 + data" />
 
 </LinearLayout>
