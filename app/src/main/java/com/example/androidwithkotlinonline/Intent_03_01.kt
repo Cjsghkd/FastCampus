@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.core.view.KeyEventDispatcher
 
@@ -66,5 +67,43 @@ class Intent_03_01 : AppCompatActivity() {
             }
         }
 
+        // 명시적 인텐트 + 결과 받기
+        // requestCode
+        //  - 구분을 하기 위해서
+        //  - Intent_03_01 -> Intent_03_02 (requestCode 1)
+        //  - Intent_03_01 -> Intent_03_03 (requestCode 2)
+        //  - Intent_03_01 -> Intent_03_04 (requestCode 3)
+        (findViewById<TextView>(R.id.intent_four)).apply {
+            this.setOnClickListener {
+                val intent = Intent(this@Intent_03_01, Intent_03_02::class.java)
+                startActivityForResult(intent, 1) // deprecated 되었다
+            }
+        }
+
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        // resultCode (status code)
+        //  - 최종결과
+        //  - 성공, 실패
+
+        when(requestCode) {
+            1 -> {
+                when(resultCode) {
+                    RESULT_OK -> {
+                        val data : String? = data?.extras?.getString("result")
+                        Log.d("dataa", data!!)
+                    }
+                }
+            }
+            2 -> {
+
+            }
+        }
+
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }
+
+
