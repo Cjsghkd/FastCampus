@@ -2,6 +2,7 @@ package com.example.androidwithkotlinonline
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import org.w3c.dom.Text
 
@@ -31,23 +32,41 @@ class Test_01_check : AppCompatActivity() {
         setContentView(R.layout.activity_test01_check)
 
         findViews()
+        setNumberTextViewListener()
 
-        one.setOnClickListener {
-            input += (it as TextView).text
-            result.text = input
+        ca.setOnClickListener {
+            input = ""
+            temp = ""
+            result.text = "0"
         }
-
-        two.setOnClickListener {
-            input += (it as TextView).text
-            result.text = input
+        plus.setOnClickListener {
+            temp = result.text.toString()
+            result.text = ""
+            input = ""
         }
-
-        three.setOnClickListener {
-            input += (it as TextView).text
-            result.text = input
+        equal.setOnClickListener {
+            val finalResult : String = (input.toInt() + temp.toInt()).toString()
+            result.text = finalResult
+            temp = finalResult
         }
 
     }
+
+    fun setNumberTextViewListener() {
+        val numberTextViewListener : List<TextView> = listOf(
+            one, two, three, four, five, six, seven, eight, nine, zero
+        )
+        val listener = object : View.OnClickListener {
+            override fun onClick(p0: View?) {
+                input += (p0 as TextView).text
+                result.text = input
+            }
+        }
+        numberTextViewListener.forEach {
+            it.setOnClickListener(listener)
+        }
+    }
+
 
     fun findViews() {
         one  = findViewById(R.id.One)
