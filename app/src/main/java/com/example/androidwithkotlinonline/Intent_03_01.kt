@@ -109,6 +109,24 @@ class Intent_03_01 : AppCompatActivity() {
             }
         }
 
+        // 명시적 인텐트 + 이미지 URI 전달
+        (findViewById<TextView>(R.id.intent_six)).apply {
+            this.setOnClickListener {
+                val intent = Intent(this@Intent_03_01, Intent_03_02::class.java).apply {
+                    val imageUri =
+                        Uri.parse("android.resource://" + packageName + "/drawable/" + "arrows")
+                        this.action = Intent.ACTION_SEND
+                        this.putExtra(Intent.EXTRA_STREAM, imageUri)
+                        this.setType("image/*")
+                }
+                startActivity(intent)
+            }
+        }
+
+        // 인텐트를 이용해서 데이터 전달이 가능하다
+        //  - 인텐트를 이용해서 키벨류 데이터를 전달한다
+        //  - 인텐트를 이용해서 이미지를 전달한다
+        //  - ... (무수히 많다)
     }
 
 
