@@ -1,5 +1,6 @@
 package com.example.androidwithkotlinonline
 
+import android.app.Instrumentation
 import android.content.ComponentName
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.KeyEventDispatcher
 
 class Intent_03_01 : AppCompatActivity() {
@@ -77,6 +81,31 @@ class Intent_03_01 : AppCompatActivity() {
             this.setOnClickListener {
                 val intent = Intent(this@Intent_03_01, Intent_03_02::class.java)
                 startActivityForResult(intent, 1) // deprecated 되었다
+            }
+        }
+
+
+        // 명시적 인텐트 + 결과받기 (ActivityResult API)
+        // - requestCode 가 존재하지 않는다
+        // -> requestCode 없이도 요청자를 구분 할 수 있다
+        val startActivityLauncher : ActivityResultLauncher<Intent> = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            // onActivityResult 에 해당하는 부분
+            when(it.resultCode) {
+                RESULT_OK -> {
+                    Log.d("dataa", it.data?.extras?.getString("result")!!)
+                }
+            }
+            // onActivityResult
+            // - 모든 intent가 한 곳에서 처리된다 -> 구분이 필요하다 (requestCode)
+            // ActivityResult API
+            // - 각각의 intent가 처리되는 곳이 별도로 있다 -> 구분이 필요없다
+        }
+        (findViewById<TextView>(R.id.intent_five)).apply {
+            this.setOnClickListener {
+                val intent = Intent(this@Intent_03_01, Intent_03_02::class.java)
+                startActivityLauncher.launch(intent)
             }
         }
 
