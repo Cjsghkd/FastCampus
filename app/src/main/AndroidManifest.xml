@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online">
         <activity
             android:name=".Activity_05_03"
+            android:launchMode="singleTop"
             android:exported="false" />
         <activity
             android:name=".Activity_05_02"
