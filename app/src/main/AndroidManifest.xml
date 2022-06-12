@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online">
         <activity
+            android:name=".Activity_05_03"
+            android:exported="false" />
+        <activity
+            android:name=".Activity_05_02"
+            android:exported="false" />
+        <activity
+            android:name=".Intent_03_01"
+            android:exported="false" />
+        <activity
             android:name=".Intent_03_02"
             android:exported="false" />
         <activity
@@ -28,7 +37,7 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".Intent_03_01"
+            android:name=".Activity_05_01"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
