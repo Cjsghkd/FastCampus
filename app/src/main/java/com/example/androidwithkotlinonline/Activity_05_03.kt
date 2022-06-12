@@ -11,11 +11,15 @@ class Activity_05_03 : AppCompatActivity() {
         setContentView(R.layout.activity_0503)
 
         (findViewById<TextView>(R.id.one)).setOnClickListener {
-            startActivity(Intent(this@Activity_05_03, Activity_05_01::class.java))
+            val intent = Intent(this@Activity_05_03, Activity_05_02::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
 
         (findViewById<TextView>(R.id.two)).setOnClickListener {
-            startActivity(Intent(this@Activity_05_03, Activity_05_02::class.java))
+            val intent = Intent(this@Activity_05_03, Activity_05_02::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+            startActivity(intent)
         }
 
         (findViewById<TextView>(R.id.three)).setOnClickListener {

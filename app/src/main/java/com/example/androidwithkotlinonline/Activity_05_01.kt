@@ -15,7 +15,9 @@ class Activity_05_01 : AppCompatActivity() {
         }
 
         (findViewById<TextView>(R.id.two)).setOnClickListener {
-            startActivity(Intent(this@Activity_05_01, Activity_05_02::class.java))
+            val intent = Intent(this@Activity_05_01, Activity_05_02::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+            startActivity(intent)
         }
 
         (findViewById<TextView>(R.id.three)).setOnClickListener {
