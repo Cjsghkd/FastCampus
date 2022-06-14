@@ -13,11 +13,11 @@ class Test_02_basic : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test02_basic)
 
-        val url : EditText = findViewById(R.id.url)
         val button : Button = findViewById(R.id.searchButton)
         val webview : WebView = findViewById(R.id.webView)
 
         button.setOnClickListener {
+            val url : EditText = findViewById(R.id.url)
             webview.loadUrl(url.text.toString())
         }
     }

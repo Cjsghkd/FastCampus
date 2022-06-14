@@ -16,6 +16,7 @@
             android:inputType="textUri"
             android:layout_marginLeft="20dp"
             android:textColor="@color/black"
+            android:hint="URL을 입력하세요"
             android:id="@+id/url"
             android:layout_width="0dp"
             android:layout_height="60dp"
