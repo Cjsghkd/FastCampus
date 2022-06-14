@@ -17,8 +17,10 @@ class Test_02_basic : AppCompatActivity() {
         val webview : WebView = findViewById(R.id.webView)
 
         button.setOnClickListener {
+            webview.settings.javaScriptEnabled = true
             val url : EditText = findViewById(R.id.url)
-            webview.loadUrl(url.text.toString())
+            val urlTextString = url.text.toString()
+            webview.loadUrl(urlTextString)
         }
     }
 }
