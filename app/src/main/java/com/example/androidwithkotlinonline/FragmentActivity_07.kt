@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 
 class FragmentActivity_07 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +40,7 @@ class FragmentActivity_07 : AppCompatActivity() {
             bundle.putString("key", "hello")
             fragmentFirst.arguments = bundle
 
-            transaction.replace(R.id.root, fragmentFirst)
+            transaction.replace(R.id.root, fragmentFirst, "fragment_first_tag")
             transaction.commit() // 끝
         }
 
@@ -49,7 +50,15 @@ class FragmentActivity_07 : AppCompatActivity() {
             transaction.commit()
         }
 
-
+        (findViewById<TextView>(R.id.access_fragment)).setOnClickListener {
+            // xml에 있는 fragment를 찾는 방법
+           val firstFragment =
+               supportFragmentManager.findFragmentById(R.id.fragment_first) as Fragment_01
+            firstFragment.printTestLog_a()
+            // xml에 없는 fragment를 찾는 방법
+            val firstFragmentNoXml = supportFragmentManager.findFragmentByTag("fragment_first_tag") as Fragment_01
+            firstFragmentNoXml.printTestLog_a()
+        }
     }
 
 
