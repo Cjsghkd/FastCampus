@@ -2,6 +2,7 @@ package com.example.androidwithkotlinonline
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 
 class FragmentActivity_07 : AppCompatActivity() {
@@ -33,6 +34,11 @@ class FragmentActivity_07 : AppCompatActivity() {
 
         (findViewById<TextView>(R.id.add)).setOnClickListener {
             val transaction = fragmentManager.beginTransaction() // 시작
+            // 프래그먼트에 데이터를 전달 하는 방법
+            val bundle = Bundle()
+            bundle.putString("key", "hello")
+            fragmentFirst.arguments = bundle
+
             transaction.replace(R.id.root, fragmentFirst)
             transaction.commit() // 끝
         }
@@ -46,4 +52,8 @@ class FragmentActivity_07 : AppCompatActivity() {
 
     }
 
+
+    fun printTestLog() {
+        Log.d("testt", "print test log")
+    }
 }
