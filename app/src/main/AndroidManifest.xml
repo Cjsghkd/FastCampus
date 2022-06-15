@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Test_02_hard"
+            android:exported="false" />
+        <activity
             android:name=".Test_02_basic_check"
             android:exported="false" />
         <activity
@@ -49,12 +52,21 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".Test_02_hard"
+            android:name=".Test_02_hard_check"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <data
+                    android:host="*"
+                    android:scheme="http" />
+
             </intent-filter>
         </activity>
         <activity
