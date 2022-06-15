@@ -38,7 +38,9 @@ class FragmentActivity_07 : AppCompatActivity() {
         }
 
         (findViewById<TextView>(R.id.remove)).setOnClickListener {
-
+            val transaction = fragmentManager.beginTransaction()
+            transaction.remove(fragmentFirst)
+            transaction.commit()
         }
 
 
