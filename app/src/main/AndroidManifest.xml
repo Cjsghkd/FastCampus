@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FragmentActivity_07"
+            android:exported="false" />
+        <activity
             android:name=".Test_02_hard_check"
             android:exported="false" />
         <activity
@@ -55,7 +58,7 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".FragmentActivity_07"
+            android:name=".ThreadActivity_08"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
