@@ -37,4 +37,12 @@
         android:gravity="center"
         android:textSize="30dp" />
 
+    <TextView
+        android:id="@+id/shot"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="슛"
+        android:gravity="center"
+        android:textSize="30dp" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>
