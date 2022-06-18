@@ -1,11 +1,15 @@
 package com.example.androidwithkotlinonline
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
+import android.widget.ListView
+import android.widget.TextView
 
 class ListViewActivity_13 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,20 +21,30 @@ class ListViewActivity_13 : AppCompatActivity() {
         for (i in 0..100) {
             carList.add(Car("" + i + "번째 자동차", "" + i + "번째 엔진"))
         }
+        val adapter = ListViewAdapter(
+            carList,
+            LayoutInflater.from(this),
+            this
+        )
+        val listview = findViewById<ListView>(R.id.listView)
+        listview.adapter = adapter
 
     }
 }
 
 class ListViewAdapter(
     val carList : MutableList<Car>,
-    val layoutInflater: LayoutInflater
+    val layoutInflater: LayoutInflater,
+    val context : Context
 ) : BaseAdapter() {
     override fun getCount(): Int {
         // 전체 데이터의 크기(갯수) 리턴
+        return carList.size
     }
 
-    override fun getItem(p0: Int): Any {
+    override fun getItem(position: Int): Any {
         // 전체 데이터 중에서 해당번째(position)의 데이터 리턴
+        return carList.get(position)
     }
 
     override fun getItemId(position: Int): Long {
@@ -39,5 +53,18 @@ class ListViewAdapter(
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         // 해당 번째 뷰를 리턴
+        val view = layoutInflater.inflate(R.layout.car_item, null)
+        val carImage = view.findViewById<ImageView>(R.id.carImage)
+        val nthCar = view.findViewById<TextView>(R.id.nthCar)
+        val nthEngine = view.findViewById<TextView>(R.id.nthEngine)
+
+        val car = carList.get(position)
+        carImage.setImageDrawable(
+            context.resources.getDrawable(R.drawable.blue_backgroud, context.theme)
+        )
+        nthCar.text = car.nthCar
+        nthEngine.text = car.nthEngine
+
+        return view
     }
 }
