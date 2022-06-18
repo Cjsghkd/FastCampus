@@ -10,6 +10,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 
 class ListViewActivity_13 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,19 +53,51 @@ class ListViewAdapter(
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        // 해당 번째 뷰를 리턴
-        val view = layoutInflater.inflate(R.layout.car_item, null)
-        val carImage = view.findViewById<ImageView>(R.id.carImage)
-        val nthCar = view.findViewById<TextView>(R.id.nthCar)
-        val nthEngine = view.findViewById<TextView>(R.id.nthEngine)
+        val view : View
+        val holder : ViewHolder
+        if (convertView == null) {
+            // 재활용 불가능
+            view = layoutInflater.inflate(R.layout.car_item, null)
+            holder = ViewHolder()
+            holder.carImage = view.findViewById(R.id.carImage)
+            holder.nthCar = view.findViewById(R.id.nthCar)
+            holder.nthEngine = view.findViewById(R.id.nthEngine)
+
+            view.tag = holder
+        } else {
+            // 재활용가능
+            holder = convertView.tag as ViewHolder
+            view = convertView
+        }
 
         val car = carList.get(position)
-        carImage.setImageDrawable(
+        holder.carImage?.setImageDrawable(
             context.resources.getDrawable(R.drawable.blue_backgroud, context.theme)
         )
-        nthCar.text = car.nthCar
-        nthEngine.text = car.nthEngine
+        holder.nthCar?.text = car.nthCar
+        holder.nthEngine?.text = car.nthEngine
+
+        return view
+
+        // 해당 번째 뷰를 리턴
+//        val view = layoutInflater.inflate(R.layout.car_item, null)
+//        val carImage = view.findViewById<ImageView>(R.id.carImage)
+//        val nthCar = view.findViewById<TextView>(R.id.nthCar)
+//        val nthEngine = view.findViewById<TextView>(R.id.nthEngine)
+//
+//        val car = carList.get(position)
+//        carImage.setImageDrawable(
+//            context.resources.getDrawable(R.drawable.blue_backgroud, context.theme)
+//        )
+//        nthCar.text = car.nthCar
+//        nthEngine.text = car.nthEngine
 
         return view
     }
+}
+
+class ViewHolder {
+    var carImage : ImageView? = null
+    var nthCar : TextView? = null
+    var nthEngine : TextView? = null
 }
