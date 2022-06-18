@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 
 class ListViewActivity_13 : AppCompatActivity() {
@@ -22,13 +19,35 @@ class ListViewActivity_13 : AppCompatActivity() {
         for (i in 0..100) {
             carList.add(Car("" + i + "번째 자동차", "" + i + "번째 엔진"))
         }
+        // 어댑터 준비
         val adapter = ListViewAdapter(
             carList,
             LayoutInflater.from(this),
             this
         )
+        // 어댑터 장착 방법
         val listview = findViewById<ListView>(R.id.listView)
         listview.adapter = adapter
+
+        // 리스너 장착 방법
+        listview.setOnItemClickListener { parent, view, position, id ->
+            val car : Car = adapter.carList.get(position)
+            val nthcar = car.nthCar
+            val nthEngine = car.nthEngine
+
+            Toast.makeText(
+                this,
+                nthcar + " " + nthEngine,
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        // 데이터 갱신 방법
+        findViewById<TextView>(R.id.addCar).setOnClickListener {
+            adapter.carList.add(
+                Car("안녕 나는 차", "안녕 나는 엔진")
+            )
+            adapter.notifyDataSetChanged()
+        }
 
     }
 }
