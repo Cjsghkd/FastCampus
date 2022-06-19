@@ -1,6 +1,7 @@
 package com.example.androidwithkotlinonline
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -30,7 +31,16 @@ class Test_12 : AppCompatActivity() {
             nthpeople.text = it.peopleNumber
             nthphone.text = it.phoneNumber
             container.addView(testItemView)
+
+            testItemView.setOnClickListener {
+                val intent = Intent(this, Test_12_check::class.java).apply {
+                    this.putExtra("name", nthpeople.text)
+                    this.putExtra("number", nthphone.text)
+                }
+                startActivity(intent)
+            }
         }
+
     }
 }
 

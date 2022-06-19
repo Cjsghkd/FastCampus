@@ -14,13 +14,16 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Test_12_02"
+            android:exported="false" />
+        <activity
             android:name=".Test_12_check"
             android:exported="false" />
         <activity
             android:name=".Test_12_check_02"
             android:exported="false" />
         <activity
-            android:name=".Test_12"
+            android:name=".ListViewActivity_13"
             android:exported="false" />
         <activity
             android:name=".AddActivity_11"
@@ -86,7 +89,7 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".ListViewActivity_13"
+            android:name=".Test_12"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
