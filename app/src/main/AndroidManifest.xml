@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Test_12"
+            android:exported="false" />
+        <activity
             android:name=".Test_12_02"
             android:exported="false" />
         <activity
@@ -89,7 +92,7 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".Test_12"
+            android:name=".RecyclerViewActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
