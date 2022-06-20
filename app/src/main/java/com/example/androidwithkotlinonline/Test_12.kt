@@ -33,7 +33,7 @@ class Test_12 : AppCompatActivity() {
             container.addView(testItemView)
 
             testItemView.setOnClickListener {
-                val intent = Intent(this, Test_12_check::class.java).apply {
+                val intent = Intent(this, Test_12_02::class.java).apply {
                     this.putExtra("name", nthpeople.text)
                     this.putExtra("number", nthphone.text)
                 }
