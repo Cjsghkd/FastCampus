@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class Test_15 : AppCompatActivity() {
@@ -19,7 +21,9 @@ class Test_15 : AppCompatActivity() {
         for (i in 1..50){
             chatList.add(CHAT("" + i + "번째 안녕하세요"))
         }
-
+        val recylcerViewAdapter15 = findViewById<RecyclerView>(R.id.recyclerView15)
+        recylcerViewAdapter15.adapter = recyclerViewAdapter(chatList, this)
+        recylcerViewAdapter15.layoutManager = LinearLayoutManager(this)
     }
 }
 
@@ -37,7 +41,7 @@ class recyclerViewAdapter(
         viewType: Int
     ): ChatViewHolder {
         val inflater = LayoutInflater.from(context)
-        val view = inflater.inflate(R.layout.chat_item_list, parent)
+        val view = inflater.inflate(R.layout.chat_item_list, parent, false)
         return ChatViewHolder(view)
     }
 
