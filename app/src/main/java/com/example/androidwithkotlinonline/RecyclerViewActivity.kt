@@ -2,12 +2,15 @@ package com.example.androidwithkotlinonline
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatViewInflater
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -24,7 +27,10 @@ class RecyclerViewActivity : AppCompatActivity() {
         // 리사이클러뷰에 어댑터 장착
         recyclerView.adapter = RecylcerViewAdapter(carList, LayoutInflater.from(this))
         // 리사이클러뷰에 레이아웃 매니저 장착
-        recyclerView.layoutManager = LinearLayoutManager(this) // 세로로 배열
+        recyclerView.layoutManager = LinearLayoutManager(this) // 세로로 배열 (기본이 vertical)
+//        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
+//        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+//        recyclerView.layoutManager = GridLayoutManager(this, 2)
     }
 }
 
@@ -34,7 +40,7 @@ class RecylcerViewAdapter(
     var inflater: LayoutInflater
 ):RecyclerView.Adapter<RecylcerViewAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
         // inner class
         // 아이템 뷰의 상세 뷰 컴포넌트를 홀드한다
         val carImage : ImageView
@@ -44,13 +50,19 @@ class RecylcerViewAdapter(
             carImage = itemView.findViewById(R.id.carImage)
             nthCar = itemView.findViewById(R.id.nthCar)
             nthEngine = itemView.findViewById(R.id.nthEngine)
+
+            itemView.setOnClickListener {
+                val position : Int = adapterPosition
+                val car = carList.get(position)
+                Log.d("testt", car.nthCar)
+            }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // 아이템뷰를 리턴
         val view = inflater.inflate(R.layout.car_item, parent, false)
-        return RecylcerViewAdapter.ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
