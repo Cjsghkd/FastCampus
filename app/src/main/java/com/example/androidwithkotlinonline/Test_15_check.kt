@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,12 +26,20 @@ class Test_15_check : AppCompatActivity() {
         chatList.add(Chat_Test("안녕하세요", false))
         chatList.add(Chat_Test("안녕하세요", true))
 
+        val adapter = ChatRecyclerAdapter(
+            chatList = chatList,
+            inflater = LayoutInflater.from(this@Test_15_check)
+        )
+
         with(findViewById<RecyclerView>(R.id.chatRecyclerView)) {
             this.layoutManager = LinearLayoutManager(this@Test_15_check)
-            this.adapter = ChatRecyclerAdapter(
-                chatList = chatList,
-                inflater = LayoutInflater.from(this@Test_15_check)
-            )
+            this.adapter = adapter
+        }
+        findViewById<Button>(R.id.button15).setOnClickListener {
+            adapter.chatList.add(2, Chat_Test("두번째 입니다", false))
+            adapter.notifyItemInserted(2) // -> 추가 되었을 때
+            // adapter.notifyItemChanged  ->  바뀌었을 때
+            // adapter.notifyItemRemoved()  ->  삭제 되었을 때
         }
     }
 }
