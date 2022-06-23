@@ -15,6 +15,7 @@ class RoomActivity : AppCompatActivity() {
         // 기본적으로 데이터베이스 작업은 메인 쓰레드에서 할 수 없다
         // 이유는, 데이터베이스 작업을 휴대폰이 하는 동안 사용자가 기다려야하기 때문
         // 해결책은, 쓰레드를 이용하거나 async를 이용하면된다
+
        val database = Room.databaseBuilder(
             applicationContext,
             UserDataBase::class.java,
@@ -39,17 +40,17 @@ class RoomActivity : AppCompatActivity() {
     }
 }
 
-@Entity
+@Entity // 데이터베이스 열(속성) 종류
 class UserProfile(
     @PrimaryKey(autoGenerate = true) val id : Int,  // autoGenerate -> 자동으로 1씩 증가
 
-    @ColumnInfo(name = "last_name")
+    @ColumnInfo(name = "last_name") // 열 이름 바꾸기(정하기)
     val lastName : String,
 
     @ColumnInfo(name = "first_name")
     val firstName : String
 ) {
-    constructor(lastName: String, firstName: String) : this(0, lastName, firstName)
+    constructor(lastName: String, firstName: String) : this(0, lastName, firstName) // id는 autoGenerate로 인해 자동으로 값이 배정되니, id값을 지정 안했을 때 id를 0으로 지정하고 실행하는 코드
 }
 
 @Dao
