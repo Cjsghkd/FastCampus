@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".NetworkActivity"
+            android:exported="false" />
+        <activity
             android:name=".RoomActivity"
             android:exported="false" />
         <activity
@@ -117,7 +120,7 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".NetworkActivity"
+            android:name=".RetrofitActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
