@@ -20,7 +20,7 @@ class RoomActivity : AppCompatActivity() {
             applicationContext,
             UserDataBase::class.java,
             "user-database"
-        ).allowMainThreadQueries().build() // 메인쓰레드에서 조작하는 것을 허락한다
+        ).allowMainThreadQueries().build() // 메인쓰레드에서 조작하는 것을 허락한다 (왠만하면 사용 X)
 
         findViewById<TextView>(R.id.save).setOnClickListener {
             val userProfile = UserProfile(1, "홍", "길동")
