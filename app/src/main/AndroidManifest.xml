@@ -125,7 +125,7 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".PermistionActivity"
+            android:name=".PermissionActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

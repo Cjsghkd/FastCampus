@@ -8,10 +8,10 @@ import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 
-class PermistionActivity : AppCompatActivity() {
+class PermissionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_permistion)
+        setContentView(R.layout.activity_permission)
 
         findViewById<TextView>(R.id.askPermission).setOnClickListener {
             val cameraPermission = ContextCompat.checkSelfPermission(
