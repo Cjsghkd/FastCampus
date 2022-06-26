@@ -1,6 +1,7 @@
 package com.example.androidwithkotlinonline
 
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -10,7 +11,9 @@ class StudentFromServer(
     val name : String,
     val age : Int,
     val intro : String
-)
+) {
+    constructor(name : String, age : Int, intro: String) : this(0, name, age, intro)
+}
 
 
 interface RetrofitService {
@@ -21,5 +24,10 @@ interface RetrofitService {
     @POST("json/students/")
     fun createStudent(
         @Body params : HashMap<String, Any>
+    ) : Call<StudentFromServer>
+
+    @POST("json/students/")
+    fun easeCreateStudent (
+        @Body student : StudentFromServer
     ) : Call<StudentFromServer>
 }
