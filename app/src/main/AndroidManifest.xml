@@ -16,6 +16,10 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".YoubuteItemActivity"
+            android:screenOrientation="landscape"
+            android:exported="true" />
+        <activity
             android:name=".PermissionActivity"
             android:exported="false" />
         <activity

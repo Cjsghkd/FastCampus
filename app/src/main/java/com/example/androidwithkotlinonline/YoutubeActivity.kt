@@ -1,6 +1,7 @@
 package com.example.androidwithkotlinonline
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -68,6 +69,13 @@ class YoutubeListAdapter(
             title = itemView.findViewById(R.id.YoutubeTitle)
             thumbnail = itemView.findViewById(R.id.YoutubeThumbnail)
             content = itemView.findViewById(R.id.YoutubeContent)
+
+            itemView.setOnClickListener {
+                val intent = Intent(context, YoubuteItemActivity::class.java)
+                intent.putExtra("video_url", youtubeItemList.get(adapterPosition).video)
+                context.startActivity(intent)
+            }
+
         }
 
     }
