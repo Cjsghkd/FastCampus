@@ -31,8 +31,11 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/youtube_recyclerView"
+        android:padding="12dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#656565"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>

@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestManager
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.zip.Inflater
@@ -34,6 +36,14 @@ class YoutubeActivity : AppCompatActivity() {
 //                youtubeItemList!!.forEach {
 //                    Log.d("youyou", it.title)
 //                }
+                val glide = Glide.with(this@YoutubeActivity)
+                val adapter = YoutubeListAdapter(
+                    youtubeItemList!!,
+                    LayoutInflater.from(this@YoutubeActivity),
+                    glide,
+                    this@YoutubeActivity
+                )
+                findViewById<RecyclerView>(R.id.youtube_recyclerView).adapter = adapter
             }
 
             override fun onFailure(call: Call<ArrayList<YoutubeItem>>, t: Throwable) {
@@ -53,18 +63,24 @@ class YoutubeListAdapter(
         val title : TextView
         val thumbnail : ImageView
         val content : TextView
-    }
 
-    init {
+        init {
+            title = itemView.findViewById(R.id.YoutubeTitle)
+            thumbnail = itemView.findViewById(R.id.YoutubeThumbnail)
+            content = itemView.findViewById(R.id.YoutubeContent)
+        }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        val view = inflater.inflate(R.layout.youtube_item, parent, false)
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.title.text = youtubeItemList.get(position).title
+        holder.content.text = youtubeItemList.get(position).content
+        glide.load((youtubeItemList.get(position).thumbnail)).centerCrop().into(holder.thumbnail)
     }
 
     override fun getItemCount(): Int {
