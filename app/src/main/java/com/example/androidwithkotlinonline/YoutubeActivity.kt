@@ -34,9 +34,6 @@ class YoutubeActivity : AppCompatActivity() {
                 response: Response<ArrayList<YoutubeItem>>
             ) {
                 val youtubeItemList = response.body()
-//                youtubeItemList!!.forEach {
-//                    Log.d("youyou", it.title)
-//                }
                 val glide = Glide.with(this@YoutubeActivity)
                 val adapter = YoutubeListAdapter(
                     youtubeItemList!!,
