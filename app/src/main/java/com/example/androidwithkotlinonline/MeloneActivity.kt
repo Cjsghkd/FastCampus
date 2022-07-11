@@ -79,6 +79,7 @@ class MelonItemRecyclerViewAdapter(
             play.setOnClickListener {
                val intent = Intent(context, MeloneDetailActivity::class.java)
                 intent.putExtra("melon_item_list", melonItemList as Serializable)
+                intent.putExtra("position", adapterPosition)
                 context.startActivity(intent)
             }
         }

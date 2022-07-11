@@ -1,15 +1,21 @@
 package com.example.androidwithkotlinonline
 
 import android.media.Image
+import android.media.MediaPlayer
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import java.text.FieldPosition
 
 class MeloneDetailActivity : AppCompatActivity() {
 
     lateinit var playPauseButton : ImageView
-    var is_playing : Boolean = false
+    lateinit var mediaPlayer: MediaPlayer
+    var position : Int = 0
+
+    var is_playing : Boolean = true
     set(value) {
         if (value == true) {
             playPauseButton.setImageDrawable(this.resources.getDrawable(R.drawable.pause, this.theme))
@@ -24,14 +30,29 @@ class MeloneDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_melone_detail)
 
+        melonItemList = intent.getSerializableExtra("melon_item_list") as ArrayList<MelonItem>
+        position = intent.getIntExtra("position", 0)
+
+        playMelonItem(melonItemList.get(position))
+
         playPauseButton = findViewById(R.id.play)
         playPauseButton.setOnClickListener {
-            if (is_playing == true) is_playing = false
-            else is_playing = true
+            if (is_playing == true) {
+                is_playing = false
+                mediaPlayer.stop()
+            }
+            else {
+                is_playing = true
+                playMelonItem(melonItemList.get(position))
+            }
         }
+    }
 
-
-        melonItemList = intent.getSerializableExtra("melon_item_list") as ArrayList<MelonItem>
-
+    fun playMelonItem(melonItem : MelonItem) {
+        mediaPlayer = MediaPlayer.create(
+            this,
+            Uri.parse(melonItem.song)
+        )
+        mediaPlayer.start()
     }
 }
