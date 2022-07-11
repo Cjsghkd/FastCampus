@@ -1,15 +1,12 @@
 package com.example.androidwithkotlinonline
 
-import android.media.Image
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
-import java.text.FieldPosition
 
-class MeloneDetailActivity : AppCompatActivity() {
+class MelonDetailActivity : AppCompatActivity() {
 
     lateinit var playPauseButton : ImageView
     lateinit var mediaPlayer: MediaPlayer
@@ -28,7 +25,7 @@ class MeloneDetailActivity : AppCompatActivity() {
     lateinit var melonItemList : ArrayList<MelonItem>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_melone_detail)
+        setContentView(R.layout.activity_melon_detail)
 
         melonItemList = intent.getSerializableExtra("melon_item_list") as ArrayList<MelonItem>
         position = intent.getIntExtra("position", 0)

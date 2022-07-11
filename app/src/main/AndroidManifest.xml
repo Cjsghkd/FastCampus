@@ -16,7 +16,7 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MeloneDetailActivity"
+            android:name=".MelonDetailActivity"
             android:exported="false" />
         <activity
             android:name=".YoutubeActivity"
