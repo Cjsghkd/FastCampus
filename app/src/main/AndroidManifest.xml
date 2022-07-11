@@ -16,9 +16,15 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".MeloneDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".YoutubeActivity"
+            android:exported="false" />
+        <activity
             android:name=".YoubuteItemActivity"
-            android:screenOrientation="landscape"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".PermissionActivity"
             android:exported="false" />
@@ -131,7 +137,7 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".YoutubeActivity"
+            android:name=".MeloneActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

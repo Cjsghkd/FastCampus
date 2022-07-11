@@ -88,7 +88,5 @@ class YoutubeListAdapter(
         glide.load((youtubeItemList.get(position).thumbnail)).centerCrop().into(holder.thumbnail)
     }
 
-    override fun getItemCount(): Int {
-        return youtubeItemList.size
-    }
+    override fun getItemCount(): Int = youtubeItemList.size
 }
