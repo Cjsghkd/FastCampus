@@ -20,7 +20,7 @@ class YoutubeItem (
 )
 
 class MelonItem (
-    val id : Int, val title : String, val song : String, val thubnail : String
+    val id : Int, val title : String, val song : String, val thumbnail : String
 )
 
 
