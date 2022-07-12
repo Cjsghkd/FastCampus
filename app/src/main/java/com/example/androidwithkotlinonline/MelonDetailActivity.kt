@@ -5,24 +5,29 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import com.bumptech.glide.Glide
 
 class MelonDetailActivity : AppCompatActivity() {
 
     lateinit var playPauseButton : ImageView
     lateinit var mediaPlayer: MediaPlayer
-    var position : Int = 0
-
-    var is_playing : Boolean = true
-    set(value) {
-        if (value == true) {
-            playPauseButton.setImageDrawable(this.resources.getDrawable(R.drawable.pause, this.theme))
-        } else {
-            playPauseButton.setImageDrawable(this.resources.getDrawable(R.drawable.play, this.theme))
-        }
-        field = value
-    }
-
     lateinit var melonItemList : ArrayList<MelonItem>
+
+    var position : Int = 0
+        set(value) {
+            if (value <= 0) field = 0
+            else if (value >= melonItemList.size) field = melonItemList.size
+        }
+    var is_playing : Boolean = true
+        set(value) {
+            if (value == true) {
+                playPauseButton.setImageDrawable(this.resources.getDrawable(R.drawable.pause, this.theme))
+            } else {
+                playPauseButton.setImageDrawable(this.resources.getDrawable(R.drawable.play, this.theme))
+            }
+            field = value
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_melon_detail)
@@ -31,6 +36,7 @@ class MelonDetailActivity : AppCompatActivity() {
         position = intent.getIntExtra("position", 0)
 
         playMelonItem(melonItemList.get(position))
+        changeThumbnail(melonItemList.get(position))
 
         playPauseButton = findViewById(R.id.play)
         playPauseButton.setOnClickListener {
@@ -43,6 +49,19 @@ class MelonDetailActivity : AppCompatActivity() {
                 playMelonItem(melonItemList.get(position))
             }
         }
+        findViewById<ImageView>(R.id.back).setOnClickListener {
+            mediaPlayer.stop()
+            position = position - 1
+            playMelonItem(melonItemList.get(position))
+            changeThumbnail(melonItemList.get(position))
+        }
+
+        findViewById<ImageView>(R.id.next).setOnClickListener {
+            mediaPlayer.stop()
+            position = position + 1
+            playMelonItem(melonItemList.get(position))
+            changeThumbnail(melonItemList.get(position))
+        }
     }
 
     fun playMelonItem(melonItem : MelonItem) {
@@ -51,5 +70,12 @@ class MelonDetailActivity : AppCompatActivity() {
             Uri.parse(melonItem.song)
         )
         mediaPlayer.start()
+    }
+
+    fun changeThumbnail(melonItem: MelonItem) {
+        findViewById<ImageView>(R.id.thumbnail).apply {
+            val glide = Glide.with(this@MelonDetailActivity)
+            glide.load(melonItem.thumbnail).into(this)
+        }
     }
 }
