@@ -17,6 +17,7 @@ class MelonDetailActivity : AppCompatActivity() {
         set(value) {
             if (value <= 0) field = 0
             else if (value >= melonItemList.size) field = melonItemList.size
+            else field = value
         }
     var is_playing : Boolean = true
         set(value) {
