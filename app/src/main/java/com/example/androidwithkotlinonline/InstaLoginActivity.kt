@@ -9,13 +9,13 @@ import androidx.core.widget.doAfterTextChanged
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
-class InstaJoin : AppCompatActivity() {
+class InstaLoginActivity : AppCompatActivity() {
     var username : String = ""
     var password : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_insta_join)
+        setContentView(R.layout.activity_insta_login)
 
         val retrofit = Retrofit.Builder()
             .baseUrl("http://mellowcode.org/")
@@ -34,14 +34,14 @@ class InstaJoin : AppCompatActivity() {
             val user = HashMap<String, Any>()
             user.put("username", username)
             user.put("password", password)
-            retrofitService.instaLogin(user).enqueue(object : Callback<Token>{
-                override fun onResponse(call: Call<Token>, response: Response<Token>) {
+            retrofitService.instaLogin(user).enqueue(object : Callback<UserToken>{
+                override fun onResponse(call: Call<UserToken>, response: Response<UserToken>) {
                     if (response.isSuccessful) {
-                        val token : Token = response.body()!!
+                        val token : UserToken = response.body()!!
                     }
                 }
 
-                override fun onFailure(call: Call<Token>, t: Throwable) {
+                override fun onFailure(call: Call<UserToken>, t: Throwable) {
                     Log.d("logintest", "fail")
                 }
             })

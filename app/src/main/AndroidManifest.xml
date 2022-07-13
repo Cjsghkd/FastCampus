@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.androidwithkotlinonline">
+    package="com.example.androidwithkotlinonline" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -14,7 +14,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".InstaLoginActivity"
+            android:exported="false" />
         <activity
             android:name=".MeloneActivity"
             android:exported="false" />
@@ -140,8 +143,8 @@
             android:name=".Activity_01"
             android:exported="false" />
         <activity
-            android:name=".InstaJoin"
-            android:exported="true">
+            android:name=".InstaJoinActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />

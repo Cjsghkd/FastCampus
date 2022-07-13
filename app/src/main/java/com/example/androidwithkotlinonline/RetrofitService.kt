@@ -22,17 +22,24 @@ class MelonItem (
     val id : Int, val title : String, val song : String, val thumbnail : String
 ) : Serializable
 
-class Token(
+class UserToken(
+    val username : String,
     val token : String
 )
 
 interface RetrofitService {
 
+    @POST("user/signup/")
+    @FormUrlEncoded
+    fun instaJoin(
+        @FieldMap params : HashMap<String, Any>
+    ) : Call<UserToken>
+
     @POST("user/login/")
     @FormUrlEncoded
     fun instaLogin(
         @FieldMap params : HashMap<String, Any>
-    ) : Call<Token>
+    ) : Call<UserToken>
 
     @GET("melon/list/")
     fun getMelonItemList() : Call<ArrayList<MelonItem>>
