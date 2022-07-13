@@ -1,5 +1,7 @@
 package com.example.androidwithkotlinonline
 
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -38,6 +40,12 @@ class InstaLoginActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<UserToken>, response: Response<UserToken>) {
                     if (response.isSuccessful) {
                         val token : UserToken = response.body()!!
+//                        Log.d("instaa", token.token)
+                        val userToken = response.body()!!
+                        val sharedPreferences = getSharedPreferences("user_info", Context.MODE_PRIVATE)
+                        val editor : SharedPreferences.Editor = sharedPreferences.edit()
+                        editor.putString("token", userToken.token)
+                        editor.commit()
                     }
                 }
 
