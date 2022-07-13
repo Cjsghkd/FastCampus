@@ -11,10 +11,10 @@
         android:background="@color/fastcampus"
         android:text="@string/hello" />
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/logo" />
+<!--    <ImageView-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:src="@drawable/logo" />-->
 
     <RadioButton
         android:layout_width="wrap_content"
