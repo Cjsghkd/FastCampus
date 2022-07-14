@@ -5,8 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".InstaMainActivity"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
-    
+
+    <ImageView
+        android:layout_width="140dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/logo_outstagram"/>
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/main_pager"
         android:layout_width="match_parent"
@@ -17,6 +25,7 @@
        android:id="@+id/main_tab"
        android:layout_width="match_parent"
        android:layout_height="68dp"
+       app:tabIndicatorHeight="0dp"
        android:background="@color/white" />
     
 

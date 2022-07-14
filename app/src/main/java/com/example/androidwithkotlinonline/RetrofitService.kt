@@ -27,7 +27,23 @@ class User(
     val id : Int
 )
 
+class InstaPost (
+    val content : String,
+    val image : String,
+    val owener_profile : Owener_profile
+)
+
+class Owener_profile (
+    val username : String,
+    val image : String
+)
+
 interface RetrofitService {
+
+    @GET("instagram/post/list/all/")
+    fun getInstagramPosts(
+
+    ) : Call<ArrayList<InstaPost>>
 
     @POST("user/signup/")
     @FormUrlEncoded
