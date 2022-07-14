@@ -1,5 +1,8 @@
 package com.example.androidwithkotlinonline
 
+import okhttp3.Headers
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 import java.io.File
@@ -46,6 +49,14 @@ class Post (
 )
 
 interface RetrofitService {
+
+    @Multipart  // 크기가 크면 이 명령어를 써줘야함 (조각내서 전송)
+    @POST("instagram/post/")
+    fun uploadPost(
+        @HeaderMap headers : Map<String, String>,
+        @Part image : MultipartBody.Part,
+        @Part("content") content : RequestBody
+    ) : Call<Any>
 
     @POST("instagram/post/like/{post_id}")
     fun postLike(

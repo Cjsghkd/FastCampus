@@ -17,6 +17,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".InstaSplashActivity"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".InstaJoinActivity"
