@@ -2,6 +2,7 @@ package com.example.androidwithkotlinonline
 
 import retrofit2.Call
 import retrofit2.http.*
+import java.io.File
 import java.io.Serializable
 
 class StudentFromServer(
@@ -30,12 +31,17 @@ class User(
 class InstaPost (
     val content : String,
     val image : String,
-    val owener_profile : Owener_profile
+    val owner_profile : Owner_profile
 )
 
-class Owener_profile (
+class Owner_profile (
     val username : String,
     val image : String
+)
+
+class Post (
+    val content : String,
+    image : File
 )
 
 interface RetrofitService {
