@@ -84,9 +84,9 @@ class InstaFeedFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val post = postList.get(position)
 
-            post.owner_profile.image.let { // image가 null이 아닌 경우만 실행
+            post.owner_profile.image?.let { // image가 있으면 실행한다
 //                glide.load(post.owner_profile.image).into(holder.ownerImg)
-                glide.load(it).centerCrop().into(holder.ownerImg)
+                glide.load(it).centerCrop().circleCrop().into(holder.ownerImg)
             }
             post.image.let {
 //                glide.load(post.image).into(holder.postImg)

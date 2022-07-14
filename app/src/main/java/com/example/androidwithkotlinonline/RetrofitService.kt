@@ -36,7 +36,7 @@ class InstaPost (
 
 class Owner_profile (
     val username : String,
-    val image : String
+    val image : String?
 )
 
 class Post (
