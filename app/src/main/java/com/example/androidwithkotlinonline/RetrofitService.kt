@@ -1,7 +1,6 @@
 package com.example.androidwithkotlinonline
 
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.http.*
 import java.io.Serializable
 
@@ -22,9 +21,10 @@ class MelonItem (
     val id : Int, val title : String, val song : String, val thumbnail : String
 ) : Serializable
 
-class UserToken(
+class User(
     val username : String,
-    val token : String
+    val token : String,
+    val id : Int
 )
 
 interface RetrofitService {
@@ -33,13 +33,13 @@ interface RetrofitService {
     @FormUrlEncoded
     fun instaJoin(
         @FieldMap params : HashMap<String, Any>
-    ) : Call<UserToken>
+    ) : Call<User>
 
     @POST("user/login/")
     @FormUrlEncoded
     fun instaLogin(
         @FieldMap params : HashMap<String, Any>
-    ) : Call<UserToken>
+    ) : Call<User>
 
     @GET("melon/list/")
     fun getMelonItemList() : Call<ArrayList<MelonItem>>
