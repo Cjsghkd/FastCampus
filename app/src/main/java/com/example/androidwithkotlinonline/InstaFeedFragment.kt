@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,7 +46,8 @@ class InstaFeedFragment : Fragment() {
                 val postRecyclerView = view.findViewById<RecyclerView>(R.id.feed_list)
                 postRecyclerView.adapter = PostRecyclerViewAdapter(
                     postList!!,
-                    LayoutInflater.from()
+                    LayoutInflater.from(activity),
+                    Glide.with(activity!!)
                 )
             }
 
@@ -81,8 +83,16 @@ class InstaFeedFragment : Fragment() {
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val post = postList.get(position)
-            glide.load(post.owner_profile.image).into(holder.ownerImg)
-            glide.load(post.image).into(holder.postImg)
+
+            post.owner_profile.image.let { // image가 null이 아닌 경우만 실행
+//                glide.load(post.owner_profile.image).into(holder.ownerImg)
+                glide.load(it).centerCrop().into(holder.ownerImg)
+            }
+            post.image.let {
+//                glide.load(post.image).into(holder.postImg)
+                glide.load(it).centerCrop().into(holder.postImg)
+            }
+
             holder.ownerUsername.text = post.owner_profile.username
             holder.postContent.text = post.content
         }
