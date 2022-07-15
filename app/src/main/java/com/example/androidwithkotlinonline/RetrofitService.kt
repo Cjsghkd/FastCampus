@@ -43,12 +43,18 @@ class Owner_profile (
     val image : String?
 )
 
-class Post (
-    val content : String,
-    image : File
+class UserInfo(
+    val id : Int,
+    val username : String,
+    val profile : Owner_profile
 )
 
 interface RetrofitService {
+
+    @GET("user/userInfo/")
+    fun getUserInfo(
+        @HeaderMap headers : Map<String, String>
+    ) : Call<UserInfo>
 
     @Multipart  // 크기가 크면 이 명령어를 써줘야함 (조각내서 전송)
     @POST("instagram/post/")
