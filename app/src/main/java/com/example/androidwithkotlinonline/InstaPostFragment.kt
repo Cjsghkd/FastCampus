@@ -76,7 +76,7 @@ class InstaPostFragment : Fragment() {
             val header = HashMap<String, String>()
             val sp = (activity as InstaMainActivity).getSharedPreferences("user_info", Context.MODE_PRIVATE)
             val token = sp.getString("token", "")
-            header.put("Authorization", token!!)
+            header.put("Authorization", "token " + token!!)
 
             retrofitService.uploadPost(header, body, content).enqueue(object : Callback<Any> {
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {

@@ -42,7 +42,6 @@ class InstaLoginActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val user : User = response.body()!!
 //                        Log.d("instaa", token.token)
-                        val userToken = response.body()!!
                         val sharedPreferences = getSharedPreferences("user_info", Context.MODE_PRIVATE)
                         val editor : SharedPreferences.Editor = sharedPreferences.edit()
                         editor.putString("token", user.token)
