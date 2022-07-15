@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -18,9 +18,12 @@
         android:theme="@style/Theme.Android앱개발의정석WithKotlin올인원패키지Online"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".InstaSplashActivity"
-            android:noHistory="true"
+            android:name=".InstaChangeProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".InstaSplashActivity"
+            android:exported="false"
+            android:noHistory="true" />
         <activity
             android:name=".InstaJoinActivity"
             android:exported="false" />
