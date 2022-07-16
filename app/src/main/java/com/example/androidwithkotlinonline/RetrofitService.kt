@@ -51,6 +51,15 @@ class UserInfo(
 
 interface RetrofitService {
 
+    @Multipart
+    @PUT("user/profile/{user_id}/")
+    fun changeProfile(
+        @Path("user_id") userId : Int,
+        @HeaderMap headers : Map<String, String>,
+        @Part image : MultipartBody.Part,
+        @Part("user") user : RequestBody
+    ) : Call<Any>
+
     @GET("user/userInfo/")
     fun getUserInfo(
         @HeaderMap headers : Map<String, String>
