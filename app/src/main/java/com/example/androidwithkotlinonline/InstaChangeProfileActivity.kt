@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
@@ -66,11 +67,14 @@ class InstaChangeProfileActivity : AppCompatActivity() {
             val user = RequestBody.create(MultipartBody.FORM, userId.toString())
             retrofitService.changeProfile(userId, header, body, user).enqueue(object : Callback<Any> {
                 override fun onResponse(call: Call<Any>, response: Response<Any>) {
-
+                    if (response.isSuccessful) {
+                        Toast.makeText(this@InstaChangeProfileActivity, "변경완료", Toast.LENGTH_SHORT).show()
+                        onBackPressed()
+                    }
                 }
 
                 override fun onFailure(call: Call<Any>, t: Throwable) {
-
+                    Toast.makeText(this@InstaChangeProfileActivity, "변경실패", Toast.LENGTH_SHORT).show()
                 }
             })
         }
